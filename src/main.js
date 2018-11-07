@@ -3,6 +3,7 @@ import App from './App'
 import router from './router'
 import VueSocketIo from 'vue-socket.io'
 import socketIo from 'socket.io-client'
+import 'lib-flexible'
 import {post, api} from './utils'
 import {Toast, Button, Icon, Popup} from 'vant'
 
