@@ -15,6 +15,13 @@
         console.log(`connected to service`)
       }
     },
+    mounted() {
+      this.$socket.on('get', (data) => {
+        if (data.id === '1') {
+          console.log(data)
+        }
+      })
+    },
     methods: {
       test() {
         this.$socket.emit('send', {id:'1', msg: 'student client'})
