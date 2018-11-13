@@ -2,6 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png" @click="test">
     <div class="rem">rem</div>
+    <button @click="test">chat</button>
     <router-view/>
   </div>
 </template>
@@ -16,12 +17,7 @@
     },
     methods: {
       test() {
-        this.$post({
-          url: this.$api.hello,
-          param: {name: 'alex'},
-          postType: 'json'
-        })
-        // this.$socket.emit('test')
+        this.$socket.emit('send', {id:'1', msg: 'student client'})
       }
     }
   }
@@ -31,6 +27,7 @@
   .rem {
     font-size: 20px;
   }
+
   #app {
     text-align: center;
   }
