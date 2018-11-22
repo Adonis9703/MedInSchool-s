@@ -2,6 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png" @click="test">
     <div class="rem">rem</div>
+    <button @click="login">login</button>
     <button @click="test">chat</button>
     <router-view/>
   </div>
@@ -17,14 +18,25 @@
     },
     mounted() {
       this.$socket.on('get', (data) => {
-        if (data.id === '1') {
           console.log(data)
-        }
       })
     },
     methods: {
       test() {
         this.$socket.emit('send', {id:'1', msg: 'student client'})
+      },
+      login() {
+        this.$post({
+          url: this.$apis.login,
+          param: {
+            studentId: '5150510115',
+            password: '123456'
+          },
+          postType: 'json'
+        }).then(res => {
+          this.$socket.emit('login', {userId: '5150510115'})
+          console.log(res.data)
+        })
       }
     }
   }

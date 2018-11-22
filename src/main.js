@@ -17,7 +17,7 @@ Vue.use(VueSocketIo, socketIo('http://localhost:3000'))
 
 Vue.config.productionTip = false
 Vue.prototype.$post = post
-Vue.prototype.$api = api
+Vue.prototype.$apis = api
 
 new Vue({
   el: '#app',
