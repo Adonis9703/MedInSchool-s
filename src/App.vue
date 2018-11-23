@@ -29,12 +29,12 @@
         this.$post({
           url: this.$apis.login,
           param: {
-            studentId: '5150510115',
+            studentId: '5150510116',
             password: '123456'
           },
           postType: 'json'
         }).then(res => {
-          this.$socket.emit('login', {userId: '5150510115'})
+          this.$socket.emit('login', {userId: '5150510116'})
           console.log(res.data)
         })
       }
